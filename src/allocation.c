@@ -33,16 +33,35 @@ char *copy_str(char *inStr, short len){
 /*Returns a freshly allocated zero-terminated vector of freshly allocated space-separated tokens from zero-terminated str.*/
 char **tokenize(char *str){
   char *ptr;
-  ptr = str;
   int n = count_words(str);
+  ptr = str;
   char **p = (char **) malloc (sizeof(char *)*n+1);
+  for(int i = 0; i <= n;i++){
+    short count = 0;
+    while(*ptr != ' ' || *ptr != 0){
+      count++;
+      ptr++;
+    }
+    p[i] = copy_str(ptr,count);
+    ptr = word_end(ptr);
+    ptr = word_start(ptr);
   }
+  p[n+1] = '\0';
+  return p;
 }
 void print_tokens(char **toks){
-  
+  while(*toks != '\0'){
+    printf("%s,\n", *toks);
+    toks++;
+  }
 }
-
-
+void free_tokens(char **toks){
+  while(*toks !='\0'){
+    free(*toks);
+    toks++;
+  }
+  free(toks);
+}
 
 
 

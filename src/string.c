@@ -7,7 +7,8 @@ char *word_start(char *str);
 char *word_end(char *str);
 int count_words(char *str);
 
-int main(){
+
+//int main(){
   //Testing space and non space functions
   // char c;
   // int i;
@@ -23,13 +24,13 @@ int main(){
   //printf("%c\n", *p);
   //---------------------------------
   //Testing count words
-  int n;
+  //int n;
   //char arr[100] = {'h','e','y',' ','h','i',' ','b','y','e','\0'};
-  char arr[5] = {' ',' ','a','b','\0'};
-   n = count_words(arr);
-   printf("Total Words in the String\n");
-   printf("%d\n", n);
-}
+// char arr[5] = {' ',' ','a','b','\0'};
+// n = count_words(arr);
+// printf("Total Words in the String\n");
+// printf("%d\n", n);
+//}
 /* Return true (non-zero)if c is a whitespacecharacter
 (' ', '\t', or '\n').
 Zero terminators are not printable (therefore false)*/
