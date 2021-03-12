@@ -57,7 +57,9 @@ int main(){
   int i;
   char t;
   char end;
-  while(end != 'N'){
+  while(end != 0x0a){
+    printf("Enter words\n");
+    t = getchar();
     char *input = (char *)malloc(100);
     for(i=0; (t = getchar())!= 0x0a && i < 99; i++){
       *(input+i) = t;
@@ -66,7 +68,7 @@ int main(){
     char **doble = tokenize(input);
     printf("TOKENS-----\n");
     print_tokens(doble);
-    printf("If you want to exit enter 'N'\n");
+    printf("If you want to exit press enter else enter any key\n");
     end = getchar();
   }
   }
