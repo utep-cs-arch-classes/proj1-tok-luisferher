@@ -46,14 +46,29 @@ int main(){
   // p++;
   //---------------------------------
   //Testing tokenizer
-  char arr[] = "Hello World yay!\0";
-  char *ptr;
-  ptr = arr;
-  char **doble = tokenize(ptr);
+  // char arr[] = "Hello World yay!\0";
+  // char *ptr;
+  // ptr = arr;
+  // char **doble = tokenize(ptr);
   //printf("%s\n", *(doble+1));
-  print_tokens(doble);
+  // print_tokens(doble);
   //free_tokens(doble);
   //print_tokens(doble);
+  int i;
+  char t;
+  char end;
+  while(end != 'N'){
+    char *input = (char *)malloc(100);
+    for(i=0; (t = getchar())!= 0x0a && i < 99; i++){
+      *(input+i) = t;
+    }
+    *(input+99)= '\0';
+    char **doble = tokenize(input);
+    printf("TOKENS-----\n");
+    print_tokens(doble);
+    printf("If you want to exit enter 'N'\n");
+    end = getchar();
+  }
   }
 /* Return true (non-zero)if c is a whitespacecharacter
 (' ', '\t', or '\n').
