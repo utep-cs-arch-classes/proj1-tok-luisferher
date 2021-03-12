@@ -177,5 +177,10 @@ void print_tokens(char **toks){
   }
 }
 void free_tokens(char **toks){
+  int i = 0;
+  while(toks[i] != 0){
+    free(toks[i]);
+    i++;
+  }
   free(toks);
 }
