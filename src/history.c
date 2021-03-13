@@ -8,8 +8,6 @@ char *get_history(List *list, int id);
 void print_history(List *list);
 void free_history(List *list);
 
-int main(){
-}
 List* init_history(){
   List *list = (List*) malloc(sizeof(List) * 1);
   list->root = NULL;

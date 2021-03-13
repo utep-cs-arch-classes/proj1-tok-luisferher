@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tokenizer.h"
+#include "history.h"
+#include "history.c"
 
 int space_char(char c);
 int non_space_char(char c);
@@ -54,21 +56,23 @@ int main(){
   // print_tokens(doble);
   //free_tokens(doble);
   //print_tokens(doble);
+  List *list = init_history();
   int i;
   char t;
-  char end;
-  while(end != 0x0a){
+  char end = 0x0a;
+  while(end == 0x0a){
     printf("Enter words\n");
-    t = getchar();
     char *input = (char *)malloc(100);
     for(i=0; (t = getchar())!= 0x0a && i < 99; i++){
       *(input+i) = t;
     }
     *(input+99)= '\0';
+    add_history(list,input);
     char **doble = tokenize(input);
     printf("TOKENS-----\n");
     print_tokens(doble);
-    printf("If you want to exit press enter else enter any key\n");
+    print_history(list);
+    printf("If you want to continue press enter\n");
     end = getchar();
   }
   }
